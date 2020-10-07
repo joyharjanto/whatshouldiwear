@@ -1,8 +1,8 @@
 from flask import Flask, request, redirect, url_for, render_template
+import requests, json
+from flask_sqlalchemy import SQLAlchemy
 from opencage.geocoder import OpenCageGeocode
 from pprint import pprint
-
-
 
 app = Flask(__name__)
 
