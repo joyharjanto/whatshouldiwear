@@ -8,23 +8,23 @@
     {% block head %}{% endblock %}
   </head>
   <body class="p-3 mb-2 bg-info text-white">
-    {% block body %}      
+    {% block body %}
 
     <div class="container-xl" style ="height:100%">
       <div class="row">
         <div class="col">
-          
+
         </div>
         <div class="col-6">
           <h1 class="text-center py-5">Cashmere or Cotton?</h1>
         </div>
         <div class="col">
-        
+
         </div>
       </div>
       <div class="row">
         <div class="col">
-       
+
         </div>
         <div class="col-4">
           <form class="ml-5 pb-5" action="/" method = "POST">
@@ -38,9 +38,12 @@
       </div>
       <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6">  
+        <div class="col-md-6">
+          {% if message %}
+          <h5 id="answer" class="ml-5 pb-5"> {{message}} </h5>
+          {% endif %}
           {% if suggestion %}
-          <h5 id="answer" class="ml-5 pb-5"> It is a day of {{a_description}} in {{address}}. <br> You should wear {{suggestion}}. </h2>
+          <h5 id="answer" class="ml-5 pb-5"> It is a day of {{a_description}} in {{address}}. <br> You should wear {{suggestion}}. </h5>
           {% endif %}
         </div>
         <div class="col-md-3"></div>

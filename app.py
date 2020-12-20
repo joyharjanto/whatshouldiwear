@@ -14,14 +14,18 @@ def home():
     if request.method == 'POST':
         address = request.form['content']
         print(address)
-        suggestion = CashmereOrCotton(address)[0]
-        a_description = CashmereOrCotton(address)[1]
-        try:
-            return render_template("base.html", suggestion=suggestion, address=address, a_description=a_description)
-        except:
-            return "um bug with form"
-        # return render_template("base.html")
-        # print(address)
+        if address == "":
+            try:
+                return render_template("base.html", message = "It will only work if you enter a valid city")
+            except:
+                return "bug with new edits"
+        else:
+            suggestion = CashmereOrCotton(address)[0]
+            a_description = CashmereOrCotton(address)[1]
+            try:
+                return render_template("base.html", suggestion=suggestion, address=address, a_description=a_description)
+            except:
+                return "um bug with form"
     else:
         return render_template("base.html")
 
@@ -39,8 +43,7 @@ def CashmereOrCotton(address):
     a_temp = r['main']['temp']
     print(a_temp)
     a_description = r['weather'][0]['description']
-    # print(r['main']['temp'])
-    # print(r['weather'][0]['description'])
+
 
     if a_temp <= 18:
         wear = "cashmere"
